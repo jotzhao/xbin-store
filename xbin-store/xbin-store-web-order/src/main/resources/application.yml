@@ -1,0 +1,47 @@
+#DUBBO
+dubbox:
+  application:
+    name: xbin-store-web-order
+    organization: dubbox
+    owner: binux
+  registry:
+    protocol: zookeeper
+    address: 192.168.125.128:2181
+  annotation:
+    package: cn.binux.order.controller,cn.binux.order.interceptor
+  monitor:
+    enabled: false
+    address: 192.168.125.1:6060
+    username: admin
+    password: admin
+
+#配置模板想到classpath路径，后面须加上"/"
+beetl:
+  templates-path: templates/
+  config:
+      html-tag-flag: true
+#配置模板的后缀，自动读取spring.mvc.view.suffix
+spring:
+  mvc:
+    view:
+      suffix: .html
+
+server:
+  port: 8108
+
+# swagger2
+swagger2.package: cn.binux.order.controller
+
+# Redis
+redisKey:
+  # 订单项缓存时间 默认20分钟
+  expire_time: 1200
+  prefix:
+    # Redis购物车商品信息前缀
+    cart_order_info_profix: 'CART_ORDER_INFO:'
+    # Redis购物车索引信息前缀
+    cart_order_index_profix: 'CART_ORDER_INDEX:'
+
+
+#SSO 系统登录页面
+sso_login_page: 'http://localhost:8104/login.html'

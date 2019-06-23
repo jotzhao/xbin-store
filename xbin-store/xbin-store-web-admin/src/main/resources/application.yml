@@ -1,0 +1,53 @@
+#DUBBO
+dubbox:
+  application:
+    name: xbin-store-web-admin
+    organization: dubbox
+    owner: binux
+  registry:
+    protocol: zookeeper
+    address: 192.168.125.128:2181
+  annotation:
+    package: cn.binux.admin.controller
+  monitor:
+    enabled: false
+    address: 192.168.125.1:6060
+    username: admin
+    password: admin
+
+#spring:
+#  mvc:
+#    view:
+#      prefix: /templates/
+#      suffix: .html
+#  freemarker:
+#    cache: false
+#    request-context-attribute: request
+
+#配置模板想到classpath路径，后面须加上"/"
+beetl:
+  templates-path: templates/
+  config:
+      html-tag-flag: true
+#配置模板的后缀，自动读取spring.mvc.view.suffix
+spring:
+  mvc:
+    view:
+      suffix: .html
+
+server:
+  port: 8100
+
+
+# swagger2
+swagger2.package: cn.binux.admin.controller
+
+# fastdfs url
+fastdfs.base.url: http://192.168.125.132/
+
+# fastdfs storage
+storage:
+  type: fastdfs
+  fastdfs:
+    tracker_server: 192.168.125.129:22122
+
